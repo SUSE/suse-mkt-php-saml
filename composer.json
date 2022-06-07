@@ -1,9 +1,10 @@
 {
-    "name": "onelogin/php-saml",
-    "description": "OneLogin PHP SAML Toolkit",
+    "name": "suse/php-saml",
+    "description": "Suse's fork on OneLogin PHP SAML Toolkit",
     "license": "MIT",
-    "homepage": "https://developers.onelogin.com/saml/php",
+    "homepage": "https://github.com/SUSE/suse-mkt-php-saml",
     "keywords": ["saml", "saml2", "onelogin"],
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "OneLogin\\": "src/"
