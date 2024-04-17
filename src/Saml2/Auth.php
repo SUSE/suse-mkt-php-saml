@@ -18,6 +18,7 @@ namespace OneLogin\Saml2;
 use RobRichards\XMLSecLibs\XMLSecurityKey;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Main class of OneLogin's PHP Toolkit
@@ -290,6 +291,7 @@ class Auth
 
             } else if ($logoutResponse->getStatus() !== Constants::STATUS_SUCCESS) {
                 $this->_errors[] = 'logout_not_success';
+                Log::info($logoutResponse->getStatus());
             } else {
                 $this->_lastMessageId = $logoutResponse->id;
                 if (!$keepLocalSession) {
