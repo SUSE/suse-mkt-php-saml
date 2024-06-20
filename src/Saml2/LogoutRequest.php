@@ -19,6 +19,7 @@ use RobRichards\XMLSecLibs\XMLSecurityKey;
 
 use DOMDocument;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 /**
  * SAML 2 Logout Request
@@ -143,6 +144,8 @@ class LogoutRequest
     {$sessionIndexStr}
 </samlp:LogoutRequest>
 LOGOUTREQUEST;
+Log::channel('database')->info(session()->getId(), ['event' => 'logout_request' , 'object' => $nameIdObj]);
+
 
 	    $key_needed =  $settings->getSPkey();
 	    $cert_needed = $settings->getSPcert();
