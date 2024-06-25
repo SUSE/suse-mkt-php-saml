@@ -580,7 +580,6 @@ class Auth
      */
     public function logout($returnTo = null, array $parameters = array(), $nameId = null, $sessionIndex = null, $stay = false, $nameIdFormat = null, $nameIdNameQualifier = null, $nameIdSPNameQualifier = null)
     {
-        Log::channel('database')->info(session()->getId(), ['event' => 'auth_logout' , 'object' => $nameId]);
 
         $sloUrl = $this->getSLOurl();
         if (empty($sloUrl)) {
