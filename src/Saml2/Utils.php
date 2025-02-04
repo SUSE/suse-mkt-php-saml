@@ -648,7 +648,7 @@ class Utils
         }
 
         // hack to avoid strict checks for SAML when working with origin domain
-        if ($selfRoutedURLNoQuery === 'https://origin.www.suse.com/saml2/acs') {
+        if (mb_stripos($selfRoutedURLNoQuery, 'https://origin.www.suse.com/saml2/acs') === 0) {
             $selfRoutedURLNoQuery = 'https://www.suse.com/saml2/acs';
         }
 
