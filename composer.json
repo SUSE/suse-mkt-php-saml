@@ -4,7 +4,7 @@
     "license": "MIT",
     "homepage": "https://github.com/SUSE/suse-mkt-php-saml",
     "keywords": ["saml", "saml2", "onelogin"],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "autoload": {
         "psr-4": {
             "OneLogin\\": "src/"

@@ -387,7 +387,7 @@ class Utils
 
                 $currentHost = $matches[1];
                 if (false !== strpos($currentHost, ':')) {
-                    list($currentHost, $possiblePort) = explode(':', $matches[1], 2);
+                    [$currentHost, $possiblePort] = explode(':', $matches[1], 2);
                     if (is_numeric($possiblePort)) {
                         $port = $possiblePort;
                     }
@@ -550,7 +550,7 @@ class Utils
 
         // strip the port
         if (false !== strpos($currentHost, ':')) {
-            list($currentHost, $port) = explode(':', $currentHost, 2);
+            [$currentHost, $port] = explode(':', $currentHost, 2);
         }
 
         return $currentHost;
@@ -573,7 +573,7 @@ class Utils
 
             // strip the port
             if (false !== strpos($currentHost, ':')) {
-                list($currentHost, $port) = explode(':', $currentHost, 2);
+                [$currentHost, $port] = explode(':', $currentHost, 2);
                 if (is_numeric($port)) {
                     $portnumber = $port;
                 }
@@ -645,6 +645,11 @@ class Utils
         $pos = strpos($selfRoutedURLNoQuery, "?");
         if ($pos !== false) {
             $selfRoutedURLNoQuery = substr($selfRoutedURLNoQuery, 0, $pos-1);
+        }
+
+        // hack to avoid strict checks for SAML when working with origin domain
+        if ($selfRoutedURLNoQuery === 'https://origin.www.suse.com/saml2/acs') {
+            $selfRoutedURLNoQuery = 'https://www.suse.com/saml2/acs';
         }
 
         return $selfRoutedURLNoQuery;
